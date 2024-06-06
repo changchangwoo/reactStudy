@@ -1,0 +1,441 @@
+.appContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Magnolia);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.progressContainer {
+  flex-shrink: 1;
+  width: 60%;
+  height: 70%;
+  max-width: 940px;
+  max-height: 700px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  margin: auto;
+  position: relative;
+}
+
+.ProgressContentsContainer {
+  width: 70%;
+  max-width: 624px;
+  padding: 30px 90px 30px 90px;
+  box-sizing: border-box;
+
+  h1 {
+    font-family: var(--Bold);
+    font-size: 30px;
+    color: var(--Marineblue);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: var(--mediumFont);
+    color: var(--Coolgray);
+
+  }
+}
+
+.TitleBox {
+  width: 100%;
+  height: 100px;
+}
+
+.progressControllerContainer {
+  width: 30%;
+  max-width: 276px;
+  border-radius: 10px;
+  background-image: url("./assets/imgs/bg-sidebar-desktop.svg");
+  background-size: cover;
+  padding: 30px 20px;
+  box-sizing: border-box;
+
+}
+
+.progressControllerContainer ul li {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressStep {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 2px solid var(--Lightgray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Lightgray);
+  transition: all 0.2s;
+}
+
+.progressStep.active {
+  background-color: var(--Pastelblue);
+  color: black;
+
+
+}
+
+.progressStep:hover {
+  background-color: var(--Pastelblue);
+  color: black;
+}
+
+.progressInfo {
+  width: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.progressInfo h1 {
+  font-family: var(--Regular);
+  font-size: var(--smallFont);
+  color: var(--Coolgray);
+  margin-bottom: 5px;
+}
+
+.progressInfo h2 {
+  font-family: var(--Bold);
+  color: var(--Lightgray);
+}
+
+
+.inputBox {
+  width: 100%;
+  position: relative;
+}
+
+.inputBox li {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.inputBox li label {
+  font-size: var(--mediumFont);
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputCheckText {
+  font-family: var(--Bold);
+  color: var(--Strawberryred);
+}
+
+
+.inputForm {
+  margin-top: 5px;
+  width: 100%;
+  height: 45px;
+  font-family: var(--Medium);
+  border: 1px solid var(--Lightgray);
+  border-radius: 8px;
+}
+
+.inputForm:hover {
+  border: 1px solid var(--Purplishblue);
+}
+
+.ButtonStyle {
+  width: 125px;
+  height: 45px;
+  font-size: medium;
+  position: absolute;
+  bottom: 4vh;
+  right: 4vw;
+  background-color: var(--Marineblue);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.ButtonStyle.back {
+  bottom: 4vh;
+  left: 21vw;
+  font-family: var(--Bold);
+  color: var(--Marineblue);
+  background-color: white;
+  ;
+}
+
+.ButtonStyle:hover {
+  background-color: var(--Purplishblue);
+
+}
+
+
+/* planContents */
+.planContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.planBoxContainer {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.planBox {
+  flex: 1;
+  flex-shrink: 1;
+  height: auto;
+  border-radius: 8px;
+  padding: 20px 20px 40px 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--Lightgray);
+  cursor: pointer;
+}
+
+.planBox.checked {
+  border: 1px solid var(--Purplishblue);
+}
+
+.planBox:hover {
+  border: 1px solid var(--Purplishblue);
+}
+
+.planBox img {
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+.planBox h1 {
+  font-family: var(--Bold);
+  font-size: var(--mediumFont);
+  color: var(--Marineblue);
+}
+
+.planBox h2 {
+  font-family: var(--Regular);
+  font-size: var(--smallFont);
+  color: var(--Coolgray);
+}
+
+.planBox h3 {
+  margin-top: 10px;
+  font-family: var(--Regular);
+  font-size: var(--smallFont);
+  color: var(--Marineblue);
+}
+
+.planToggle {
+  width: 100%;
+  margin-top: 30px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: var(--Alabaster);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+}
+
+.planToggle h1 {
+  font-family: var(--Medium);
+  font-size: var(--mediumFont);
+  color: var(--Coolgray);
+}
+
+.planToggle h1 .toggle {
+  color: var(--Marineblue)
+}
+
+/**/
+.planSwitch {
+  appearance: none;
+  position: relative;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 1.25em;
+  width: 2.25em;
+  height: 1.25em;
+}
+
+.planSwitch::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0.8);
+  background-color: gray;
+  transition: left 250ms linear;
+}
+
+.planSwitch:checked {
+  background-color: var(--Marineblue);
+  border-color: var(--Marineblue);
+}
+
+.planSwitch:checked::before {
+  background-color: white;
+  left: 1em;
+}
+
+.planSwitch:disabled:before {
+  background-color: lightgray;
+}
+
+
+.planSwitch:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) solid var(--Marineblue);
+}
+
+.planSwitch:enabled:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+}
+
+.addonsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+}
+
+.addonsContainer li {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--Lightgray);
+  border-radius: 8px;
+}
+
+.addonsContainer .checkedList {
+  border: 1px solid var(--Purplishblue);
+}
+
+.addonsContainer li:hover {
+  border: 1px solid var(--Purplishblue);
+}
+
+.addOnChecker {
+  flex: 0.1;
+  width: 30px;
+  height: 20px;
+  border: 1px solid var(--Lightgray);
+  border-radius: 2px;
+  background-color: green;
+}
+
+.addOnChecker:checked {
+  background: var(--Purplishblue);
+}
+
+.addonsContainer li .descriptBox {
+  padding-left: 20px;
+  box-sizing: border-box;
+  flex: 0.7;
+}
+
+.addonsContainer li .descriptBox h1 {
+  font-family: var(--Bold);
+  font-size: var(--largeFont);
+}
+
+.addonsContainer li .descriptBox h2 {
+  font-family: var(--Medium);
+  font-size: var(--mediumFont);
+}
+
+.addonsContainer li .priceBox {
+  color: var(--Purplishblue);
+  flex: 0.2;
+}
+
+.summaryContainer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  height: auto;
+  background-color: var(--Alabaster);
+}
+
+.summaryContainer .topBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryContainer .topBox h1 {
+  font-family: var(--Bold);
+  font-size: var(--mediumFont);
+}
+
+.summaryContainer h2 {
+  font-family: var(--Regular);
+
+}
+
+.summaryContainer .topBox p {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryContainer hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.summaryContainer ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.summaryContainer ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryContainer ul li h3 {
+  font-family: var(--Medium);
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceBox {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+
+.priceBox div {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.priceBox div h1 {
+  font-size: var(--largeFont);
+  color: var(--Purplishblue);
+  
+}
