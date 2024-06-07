@@ -9,15 +9,27 @@ interface PersonalInfoProps extends currentProps
 
 };
 
+
 const PersonalInfo = ({ currentStep, setCurrentStep }: PersonalInfoProps) => {
-  const [inputName, setChangeInputName] = useInput('');
-  const [inputAddress, setChangeInputAddress] = useInput('');
-  const [inputPhone, setChangeInputPhone] = useInput('');
+  const [inputName, setChangeInputName, setInputName] = useInput('');
+  const [inputAddress, setChangeInputAddress, setInputAddress] = useInput('');
+  const [inputPhone, setChangeInputPhone, setInputPhone] = useInput('');
   const [validation, setValidation] = useState({
     name: true,
     address: true,
     phone: true,
   });
+
+  useEffect(()=>{
+    const sessionData = sessionStorage.getItem(PersonalInfo.name)
+    if(sessionData) {
+      const parseData = JSON.parse(sessionData);
+      setInputName(parseData.name)
+      setInputAddress(parseData.address)
+      setInputPhone(parseData.phone)
+    }
+  }, [])
+  
   const onClick = () => {
     setValidation({
       name: inputName.trim() !== '',
@@ -25,6 +37,11 @@ const PersonalInfo = ({ currentStep, setCurrentStep }: PersonalInfoProps) => {
       phone: inputPhone.trim() !== '',
     });
     if(inputName.trim() !== '' && inputAddress.trim() !== '' && inputPhone.trim() !== '') {
+      sessionStorage.setItem(PersonalInfo.name,JSON.stringify({
+        name : inputName ,
+        address : inputAddress,
+        phone : inputPhone
+      }))
       setCurrentStep(currentStep+1)
     }
   }
