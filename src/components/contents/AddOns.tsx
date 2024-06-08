@@ -31,7 +31,7 @@ const addOnsContents = [
 ];
 
 const AddOns = ({ currentStep, setCurrentStep }: AddOnsProps) => {
-  const [checkedItem, handleCheck, setCheckedItem] = useChecked();
+  const [checkedItem, handleCheck, setCheckedItem] = useChecked({});
   const { isYear } = useContext(isYearContext);
 
   const handleNext = () => {

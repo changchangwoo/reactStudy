@@ -384,13 +384,23 @@
   justify-content: space-between;
 }
 
+.summaryContainer .topPrice {
+  font-family: var(--Bold);
+  font-size: var(--mediumFont);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .summaryContainer .topBox h1 {
   font-family: var(--Bold);
   font-size: var(--mediumFont);
 }
 
-.summaryContainer h2 {
+.summaryContainer .topBox h2 {
   font-family: var(--Regular);
+  text-decoration: underline;
+  cursor: pointer;
 
 }
 

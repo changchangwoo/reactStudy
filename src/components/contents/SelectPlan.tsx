@@ -33,28 +33,32 @@ const planBoxContents: IPlanBox[] = [
 ];
 
 const SelectPlan = ({ currentStep, setCurrentStep }: SelectPlanProps) => {
-  const [checkedItem, handleCheck, setCheckedItem] = useChecked();
+  const [checkedItem, handleCheck, setCheckedItem] = useChecked({limit : 1});
   const {isYear, setIsYear} = useContext(isYearContext);
-
   useEffect(()=>{
     const sessionData = sessionStorage.getItem(SelectPlan.name)
     if(sessionData) {
       const parseData = JSON.parse(sessionData);
-      setCheckedItem(parseData.map((item : any) => item.id))
+      setCheckedItem([parseData.id])  
     }
   }, [])
+
   const handleNext = () => {
     if (checkedItem.length > 0) {
-      const selectPlanData = checkedItem.map((id) => {
-        const content = planBoxContents.find((item) => item.id === id);
-        if(content) {
-          return {id : content.id, title: content.title, price: isYear ? content.yearPrice: content.monthPrice}
+      const selectedPlan = planBoxContents.find((item) => item.id === checkedItem[0]);
+  
+      if (selectedPlan) {
+        const selectPlanData = {
+          id : selectedPlan.id,
+          title : selectedPlan.title,
+          price : isYear ? selectedPlan.yearPrice : selectedPlan.monthPrice
         }
-        return null;
-      }).filter(item => item !== null);
-      sessionStorage.setItem("SelectPlan", JSON.stringify(selectPlanData));
-      setCurrentStep(currentStep + 1);
+  
+        sessionStorage.setItem(SelectPlan.name, JSON.stringify(selectPlanData));
+      }
     }
+  
+    setCurrentStep(currentStep + 1);
   };
   const handlePrev = () => {
     setCurrentStep(currentStep - 1);

@@ -1,51 +1,80 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../common/Button";
-import { currentProps } from "../../model/ProgressContents.mdoel";
 import { isYearContext } from "../context/IsYearContext.ts";
+import { currentProps } from "../../model/ProgressContents.mdoel.ts";
 
-interface SummaryProps extends currentProps {
+interface SummaryProps extends currentProps {}
 
+interface addOnsData {
+  title: string;
+  price: number;
 }
 
-const Summary = ({ currentStep, setCurrentStep } : SummaryProps) => {
-  const {isYear} = useContext(isYearContext);
-
+const Summary = ({ currentStep, setCurrentStep }: SummaryProps) => {
+  const { isYear } = useContext(isYearContext);
+  const [addOnsData, setAddOnsData] = useState<addOnsData[] | null>(null);
+  const [selectPlanData, setSelectPlanData] = useState<addOnsData | null>(null);
+  const YearMonthCheck = isYear ? "/yr" : "/mo";
   const handleNext = () => {
-    setCurrentStep(currentStep+1)
-  }
-  const handlePrev = () => {
-    setCurrentStep(currentStep-1)
-  }
+    setCurrentStep(currentStep + 1);
+  };
 
-useEffect(()=>{
-  sessionStorage.getItem()
-}, [])
+  const handlePrev = () => {
+    setCurrentStep(currentStep - 1);
+  };
+
+  const handleChange = () => {
+    setCurrentStep(2);
+  };
+
+  useEffect(() => {
+    const addOns = sessionStorage.getItem("AddOns");
+    const selectPlan = sessionStorage.getItem("SelectPlan");
+
+    if (addOns) {
+      const parseAddOnsData = JSON.parse(addOns)
+      setAddOnsData(parseAddOnsData);
+    }
+
+    if (selectPlan) {
+      const parseSelectPlan = JSON.parse(selectPlan)
+      setSelectPlanData(parseSelectPlan);
+    }
+  }, []);
+
   return (
     <>
       <div className="summaryContainer">
         <div className="topBox">
           <div>
-            <h1>Arcade(Yearly)</h1>
-            <h2>Change</h2>
+            <h1>
+              {selectPlanData &&
+                `${selectPlanData.title} (${isYear ? "Yearly" : "/Monthly"})`}
+            </h1>
+            <h2 onClick={handleChange}>Change</h2>
+          </div>
+          <div className="topPrice">
+            {selectPlanData && `$${selectPlanData.price}${YearMonthCheck}`}
           </div>
         </div>
         <hr />
-
         <ul>
-          <li>
-            <h2>Online service</h2>
-            <h3>+$10/yr</h3>
-          </li>
-          <li>
-            <h2>Larger storage</h2>
-            <h3>+$20/yr</h3>
-          </li>
+          {addOnsData &&
+            addOnsData.map((item) => (
+              <li>
+                <h2>{item.title}</h2>
+                <h3>{`$${item.price}${YearMonthCheck}`}</h3>
+              </li>
+            ))}
         </ul>
       </div>
       <div className="priceBox">
         <div>
-          <h2>Total (per year)</h2>
-          <h1>$120/yr</h1>
+          <h2>{`Total (per ${isYear ? 'year' : 'month'})`}</h2>
+          <h1>{`$${(Array.isArray(addOnsData) && (selectPlanData)) 
+            && addOnsData.reduce((acc, item) => acc + item.price, 0)+selectPlanData.price} 
+            ${YearMonthCheck}`}
+            </h1>
         </div>
       </div>
       <Button onClick={handleNext} isNext={true} />
