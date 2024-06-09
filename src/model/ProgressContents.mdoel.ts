@@ -22,4 +22,10 @@ export interface ItitleData {
   id: number;
   title: string;
   descript: string;
+  sessionKey : string;
+}
+
+export interface IEndContentsData {
+  title : string;
+  descript : string;
 }

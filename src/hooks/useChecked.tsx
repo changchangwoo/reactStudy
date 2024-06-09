@@ -14,7 +14,9 @@ const useChecked = ({ limit }: Options): ReturnValue => {
     if (checkedItem.includes(id)) {
       setCheckedItem(checkedItem.filter((item) => item !== id));
     } else {
-      if(limit && checkedItem.length >= limit) return
+      if(limit && checkedItem.length >= limit) {
+        return
+      }
       setCheckedItem([...checkedItem, id]);
     }
   };

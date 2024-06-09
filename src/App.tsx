@@ -8,28 +8,41 @@ import AddOns from "./components/contents/AddOns";
 import Summary from "./components/contents/Summary";
 import { ItitleData } from "./model/ProgressContents.mdoel";
 import IsYearProvider from "./components/context/IsYearProvider.tsx";
+import EndContents from "./components/contents/EndContents.tsx";
 
-const titleData: ItitleData[] = [
+export const titleData: ItitleData[] = [
   {
     id: 1,
     title: "Personal info",
     descript: "Please provide your name, email, address, and phone number",
+    sessionKey : "PersonalInfo"
   },
   {
     id: 2,
     title: "Select your plan",
     descript: "You have the option of monthly or yearly billing",
+    sessionKey : "SelectPlan"
+
   },
   {
     id: 3,
     title: "Pick add-ons",
     descript: "Add-ons enhance your gaming experience",
+    sessionKey : "AddOns"
+
   },
   {
     id: 4,
     title: "Finishing up",
     descript: "Double-check everything looks OK before confirming",
+    sessionKey : "Summary"
   },
+  {
+    id: 5,
+    title: "",
+    descript: "",
+    sessionKey : ""
+  }
 ];
 
 
@@ -65,8 +78,11 @@ function App() {
           <IsYearProvider>
           <Summary currentStep={currentStep} setCurrentStep={setCurrentStep} />
           </IsYearProvider>
-
         );
+      case 5:
+        return (
+          <EndContents/>
+        )
       default:
         return (
           <PersonalInfo

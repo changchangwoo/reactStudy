@@ -86,7 +86,7 @@ const SelectPlan = ({ currentStep, setCurrentStep }: SelectPlanProps) => {
           ))}
         </ul>
         <div className="planToggle">
-          <h1>Monthly</h1>
+          <h1 className={`${isYear ? "" : "toggle"}`}>Monthly</h1>
           <label>
             <input
               className="planSwitch"
@@ -96,7 +96,7 @@ const SelectPlan = ({ currentStep, setCurrentStep }: SelectPlanProps) => {
               onChange={()=>setIsYear(!isYear)}
             />
           </label>
-          <h1>Yearly</h1>
+          <h1 className={`${!isYear ? "" : "toggle"}`}>Yearly</h1>
         </div>
       </div>
       <Button onClick={handleNext} isNext={true} />

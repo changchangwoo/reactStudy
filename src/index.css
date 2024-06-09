@@ -169,10 +169,26 @@ table {
   --smallFont : 14px;
   --mediumFont : 16px;
   --largeFont : 20px;
+
+  @media (max-width: 1000px) {
+    --smallFont : 12px;
+    --mediumFont : 14px;
+    --largeFont :18px;
+    
+  }
+
+  
+  @media (max-width: 800px) {
+    --smallFont : 11px;
+    --mediumFont : 13px;
+    --largeFont :17px;
+    
+  }
 }
 
 html {
   font-family: var(--Regular);
+  font-size: var(--mediumFont);
   color: var(--Marineblue)
 }
 

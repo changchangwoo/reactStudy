@@ -1,16 +1,31 @@
 import React from "react";
+import { titleData } from "../App";
+import { ItitleData } from "../model/ProgressContents.mdoel";
 
 interface ProgressControllerProps {
   setCurrentStep: (step: number) => void;
   currentStep: number;
 }
 
-const progressContents = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
+const progressContents: string[] = [
+  "YOUR INFO",
+  "SELECT PLAN",
+  "ADD-ONS",
+  "SUMMARY",
+];
 
-const ProgressController = ({ currentStep, setCurrentStep }: ProgressControllerProps) => {
+const ProgressController = ({
+  currentStep,
+  setCurrentStep,
+}: ProgressControllerProps) => {
   const onClickStep = (e: React.MouseEvent<HTMLDivElement>) => {
     const step = Number(e.currentTarget.textContent);
-    setCurrentStep(step);
+    const stepSession = titleData.find((item: ItitleData) => {
+      return item.id === step;
+    })?.sessionKey;
+    if (stepSession && sessionStorage.getItem(stepSession)) {
+      setCurrentStep(step);
+    }
   };
 
   return (
@@ -19,7 +34,9 @@ const ProgressController = ({ currentStep, setCurrentStep }: ProgressControllerP
         {progressContents.map((item, index) => (
           <li key={index + 1}>
             <div
-              className={`progressStep ${currentStep === index + 1 ? "active" : ""}`}
+              className={`progressStep ${
+                currentStep === index + 1 ? "active" : ""
+              }`}
               onClick={onClickStep}
             >
               {index + 1}

@@ -24,9 +24,9 @@
 }
 
 .ProgressContentsContainer {
-  width: 70%;
+  width: 80%;
   max-width: 624px;
-  padding: 30px 90px 30px 90px;
+  padding: 4vh 5vw 3vh 5vw;
   box-sizing: border-box;
 
   h1 {
@@ -54,14 +54,15 @@
   border-radius: 10px;
   background-image: url("./assets/imgs/bg-sidebar-desktop.svg");
   background-size: cover;
-  padding: 30px 20px;
   box-sizing: border-box;
+  padding-top: 3vh;
 
 }
 
 .progressControllerContainer ul li {
-  width: 100%;
+  width: 80%;
   height: 50px;
+  margin: auto;
   margin-bottom: 20px;
   padding: 5px;
   box-sizing: border-box;
@@ -101,6 +102,7 @@
   justify-content: center;
   padding-left: 10px;
   box-sizing: border-box;
+  font-size: var(--mediumFont);
 }
 
 .progressInfo h1 {
@@ -153,8 +155,8 @@
 }
 
 .ButtonStyle {
-  width: 125px;
-  height: 45px;
+  width: 12vw;
+  height: 5vh;
   font-size: medium;
   position: absolute;
   bottom: 4vh;
@@ -189,13 +191,14 @@
 .planContainer {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: auto;
 }
 
 .planBoxContainer {
+  margin: auto;
   width: 100%;
   display: flex;
-  gap: 20px;
+  gap: 1vw;
 }
 
 .planBox {
@@ -203,7 +206,7 @@
   flex-shrink: 1;
   height: auto;
   border-radius: 8px;
-  padding: 20px 20px 40px 20px;
+  padding: 5%;
   box-sizing: border-box;
   border: 1px solid var(--Lightgray);
   cursor: pointer;
@@ -260,7 +263,7 @@
   color: var(--Coolgray);
 }
 
-.planToggle h1 .toggle {
+.planToggle h1.toggle {
   color: var(--Marineblue)
 }
 
@@ -448,4 +451,20 @@
   font-size: var(--largeFont);
   color: var(--Purplishblue);
   
+}
+.endContentsContainer img {
+  margin-bottom: 30px;
+}
+.endContentsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+.endContentsContainer h2 {
+  font-family: var(--Regular);
+  font-size: var(--mediumFont);
+  text-align: center;
+  line-height: 3vh;
 }
