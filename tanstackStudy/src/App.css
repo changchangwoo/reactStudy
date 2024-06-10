@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+
+}
+
+.container button {
+  width: 50%;
+  height: 40px;
+  margin: auto;
+
+}
+
+.container p {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
